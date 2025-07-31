@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TradePro Elite - Professional Stock Trading Platform</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Top Navigation Bar -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1><i class="fas fa-chart-line"></i> TradePro Elite</h1>
+                <span class="version">v3.0 Professional</span>
+            </div>
+            <nav class="main-nav">
+                <button class="nav-btn active" data-section="dashboard">
+                    <i class="fas fa-chart-area"></i> Dashboard
+                </button>
+                <button class="nav-btn" data-section="watchlist">
+                    <i class="fas fa-eye"></i> Watchlist
+                </button>
+                <button class="nav-btn" data-section="portfolio">
+                    <i class="fas fa-briefcase"></i> Portfolio
+                </button>
+                <button class="nav-btn" data-section="analytics">
+                    <i class="fas fa-chart-bar"></i> Analytics
+                </button>
+                <button class="nav-btn" data-section="research">
+                    <i class="fas fa-search"></i> Research
+                </button>
+            </nav>
+            <div class="user-controls">
+                <div class="market-status">
+                    <span id="marketStatus" class="status-open">Market Open</span>
+                    <div class="live-indicator"></div>
+                </div>
+                <button class="account-btn">
+                    <i class="fas fa-user-circle"></i>
+                    <span>John Doe</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Dashboard Section -->
+        <section id="dashboard" class="section active">
+            <div class="container">
+                <!-- Market Overview -->
+                <div class="market-overview">
+                    <h2>Market Overview</h2>
+                    <div class="indices-grid">
+                        <div class="index-card">
+                            <div class="index-name">NIFTY 50</div>
+                            <div class="index-value" id="nifty50">19,674.35</div>
+                            <div class="index-change positive">+123.45 (+0.63%)</div>
+                        </div>
+                        <div class="index-card">
+                            <div class="index-name">SENSEX</div>
+                            <div class="index-value" id="sensex">65,953.48</div>
+                            <div class="index-change positive">+342.18 (+0.52%)</div>
+                        </div>
+                        <div class="index-card">
+                            <div class="index-name">BANK NIFTY</div>
+                            <div class="index-value" id="banknifty">45,123.75</div>
+                            <div class="index-change negative">-234.56 (-0.52%)</div>
+                        </div>
+                        <div class="index-card">
+                            <div class="index-name">NIFTY IT</div>
+                            <div class="index-value" id="niftyit">28,456.90</div>
+                            <div class="index-change positive">+156.78 (+0.55%)</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Actions & Portfolio Summary -->
+                <div class="dashboard-grid">
+                    <!-- Portfolio Summary -->
+                    <div class="portfolio-summary">
+                        <h3>Portfolio Summary</h3>
+                        <div class="portfolio-stats">
+                            <div class="stat-item">
+                                <span class="stat-label">Total Value</span>
+                                <span class="stat-value">₹15,67,890</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Day's P&L</span>
+                                <span class="stat-value positive">+₹12,345</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Total P&L</span>
+                                <span class="stat-value positive">+₹2,45,678</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Available Funds</span>
+                                <span class="stat-value">₹3,45,000</span>
+                            </div>
+                        </div>
+                        <div class="portfolio-chart">
+                            <canvas id="portfolioChart" width="400" height="200"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Top Gainers/Losers -->
+                    <div class="market-movers">
+                        <div class="movers-tabs">
+                            <button class="tab-btn active" data-tab="gainers">Top Gainers</button>
+                            <button class="tab-btn" data-tab="losers">Top Losers</button>
+                        </div>
+                        <div id="gainers" class="movers-content active">
+                            <div class="mover-item">
+                                <span class="stock-name">ADANIENT</span>
+                                <span class="stock-price">₹2,456.70</span>
+                                <span class="stock-change positive">+8.45%</span>
+                            </div>
+                            <div class="mover-item">
+                                <span class="stock-name">TATAMOTORS</span>
+                                <span class="stock-price">₹623.45</span>
+                                <span class="stock-change positive">+6.78%</span>
+                            </div>
+                            <div class="mover-item">
+                                <span class="stock-name">RELIANCE</span>
+                                <span class="stock-price">₹2,567.80</span>
+                                <span class="stock-change positive">+5.23%</span>
+                            </div>
+                        </div>
+                        <div id="losers" class="movers-content">
+                            <div class="mover-item">
+                                <span class="stock-name">HDFC</span>
+                                <span class="stock-price">₹1,456.30</span>
+                                <span class="stock-change negative">-4.56%</span>
+                            </div>
+                            <div class="mover-item">
+                                <span class="stock-name">ICICIBANK</span>
+                                <span class="stock-price">₹945.67</span>
+                                <span class="stock-change negative">-3.45%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Live Trading Interface -->
+                <div class="trading-interface">
+                    <h3>Quick Trade</h3>
+                    <div class="trade-form">
+                        <div class="stock-search">
+                            <input type="text" id="stockSearch" placeholder="Search stocks (e.g., RELIANCE, TCS, INFY)">
+                            <div id="searchResults" class="search-results"></div>
+                        </div>
+                        <div class="trade-details">
+                            <div class="trade-type">
+                                <button class="trade-btn buy active" data-type="buy">BUY</button>
+                                <button class="trade-btn sell" data-type="sell">SELL</button>
+                            </div>
+                            <div class="trade-inputs">
+                                <input type="number" id="quantity" placeholder="Quantity" min="1">
+                                <select id="orderType">
+                                    <option value="market">Market</option>
+                                    <option value="limit">Limit</option>
+                                    <option value="stop-loss">Stop Loss</option>
+                                </select>
+                                <input type="number" id="price" placeholder="Price" step="0.01" disabled>
+                            </div>
+                        </div>
+                        <div class="trade-summary">
+                            <div class="summary-item">
+                                <span>Estimated Cost:</span>
+                                <span id="estimatedCost">₹0</span>
+                            </div>
+                        </div>
+                        <button class="place-order-btn disabled" disabled>
+                            <i class="fas fa-ban"></i> Order Placement On Hold
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Watchlist Section -->
+        <section id="watchlist" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Watchlist</h2>
+                    <button class="add-stock-btn">
+                        <i class="fas fa-plus"></i> Add Stock
+                    </button>
+                </div>
+                <div class="watchlist-tabs">
+                    <button class="tab-btn active" data-tab="all">All Stocks</button>
+                    <button class="tab-btn" data-tab="nifty50">NIFTY 50</button>
+                    <button class="tab-btn" data-tab="custom">Custom List</button>
+                </div>
+                <div class="watchlist-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Symbol</th>
+                                <th>LTP</th>
+                                <th>Chg</th>
+                                <th>Chg%</th>
+                                <th>Volume</th>
+                                <th>Buy/Sell</th>
+                            </tr>
+                        </thead>
+                        <tbody id="watchlistBody">
+                            <!-- Dynamic content -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="section">
+            <div class="container">
+                <div class="portfolio-header">
+                    <h2>Portfolio Holdings</h2>
+                    <div class="portfolio-controls">
+                        <button class="btn-secondary">
+                            <i class="fas fa-download"></i> Export
+                        </button>
+                        <button class="btn-secondary">
+                            <i class="fas fa-sync"></i> Refresh
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="portfolio-metrics">
+                    <div class="metric-card">
+                        <h4>Total Investment</h4>
+                        <div class="metric-value">₹13,22,000</div>
+                    </div>
+                    <div class="metric-card">
+                        <h4>Current Value</h4>
+                        <div class="metric-value">₹15,67,890</div>
+                    </div>
+                    <div class="metric-card">
+                        <h4>Unrealized P&L</h4>
+                        <div class="metric-value positive">+₹2,45,890</div>
+                    </div>
+                    <div class="metric-card">
+                        <h4>Day's P&L</h4>
+                        <div class="metric-value positive">+₹12,345</div>
+                    </div>
+                </div>
+
+                <div class="holdings-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Instrument</th>
+                                <th>Qty</th>
+                                <th>Avg. Cost</th>
+                                <th>LTP</th>
+                                <th>P&L</th>
+                                <th>Day Chg</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="holdingsBody">
+                            <!-- Dynamic content -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Analytics Section -->
+        <section id="analytics" class="section">
+            <div class="container">
+                <h2>Advanced Analytics</h2>
+                <div class="analytics-grid">
+                    <div class="chart-container">
+                        <h3>Portfolio Performance</h3>
+                        <canvas id="performanceChart"></canvas>
+                    </div>
+                    <div class="chart-container">
+                        <h3>Sector Allocation</h3>
+                        <canvas id="sectorChart"></canvas>
+                    </div>
+                    <div class="chart-container">
+                        <h3>Risk Analysis</h3>
+                        <canvas id="riskChart"></canvas>
+                    </div>
+                    <div class="chart-container">
+                        <h3>Returns Distribution</h3>
+                        <canvas id="returnsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Research Section -->
+        <section id="research" class="section">
+            <div class="container">
+                <h2>Research & Analysis</h2>
+                <div class="research-tools">
+                    <div class="tool-card">
+                        <h3>Stock Screener</h3>
+                        <div class="screener-filters">
+                            <select id="marketCap">
+                                <option value="">Market Cap</option>
+                                <option value="large">Large Cap</option>
+                                <option value="mid">Mid Cap</option>
+                                <option value="small">Small Cap</option>
+                            </select>
+                            <select id="sector">
+                                <option value="">Sector</option>
+                                <option value="it">IT</option>
+                                <option value="banking">Banking</option>
+                                <option value="pharma">Pharma</option>
+                            </select>
+                            <button class="btn-primary">Screen</button>
+                        </div>
+                    </div>
+                    <div class="tool-card">
+                        <h3>Technical Indicators</h3>
+                        <div class="indicator-list">
+                            <div class="indicator-item">
+                                <span>RSI (14)</span>
+                                <span class="indicator-value">67.45</span>
+                            </div>
+                            <div class="indicator-item">
+                                <span>MACD</span>
+                                <span class="indicator-value positive">+12.34</span>
+                            </div>
+                            <div class="indicator-item">
+                                <span>Moving Avg (50)</span>
+                                <span class="indicator-value">₹2,345.67</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modals -->
+    <div id="stockModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add to Watchlist</h3>
+                <button class="modal-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <input type="text" id="modalStockSearch" placeholder="Search stock symbol">
+                <div class="modal-actions">
+                    <button class="btn-primary">Add to Watchlist</button>
+                    <button class="btn-secondary modal-close">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
