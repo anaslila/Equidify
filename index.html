@@ -3,366 +3,380 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TradePro Elite - Professional Stock Trading Platform</title>
+    <title>Equidify - Online Stock Trading Platform</title>
+    
+    <!-- Meta Tags for SEO and Social Media -->
+    <meta name="description" content="Equidify - Your premier online stock trading platform with real-time market data and advanced trading tools">
+    <meta name="keywords" content="stock trading, online trading, stock market, real-time prices, trading platform">
+    <meta name="author" content="Equidify">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://equidify.com/">
+    <meta property="og:title" content="Equidify - Online Stock Trading Platform">
+    <meta property="og:description" content="Trade stocks with real-time data and advanced tools on Equidify">
+    <meta property="og:image" content="https://i.postimg.cc/HkGbfFgJ/equityfy.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://equidify.com/">
+    <meta property="twitter:title" content="Equidify - Online Stock Trading Platform">
+    <meta property="twitter:description" content="Trade stocks with real-time data and advanced tools on Equidify">
+    <meta property="twitter:image" content="https://i.postimg.cc/HkGbfFgJ/equityfy.png">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://i.postimg.cc/HkGbfFgJ/equityfy.png">
+    <link rel="shortcut icon" href="https://i.postimg.cc/HkGbfFgJ/equityfy.png">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- iOS PWA Meta Tags -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Equidify">
+    <link rel="apple-touch-icon" href="https://i.postimg.cc/HkGbfFgJ/equityfy.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="https://i.postimg.cc/HkGbfFgJ/equityfy.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="https://i.postimg.cc/HkGbfFgJ/equityfy.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="https://i.postimg.cc/HkGbfFgJ/equityfy.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="https://i.postimg.cc/HkGbfFgJ/equityfy.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="https://i.postimg.cc/HkGbfFgJ/equityfy.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="https://i.postimg.cc/HkGbfFgJ/equityfy.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="https://i.postimg.cc/HkGbfFgJ/equityfy.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="https://i.postimg.cc/HkGbfFgJ/equityfy.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://i.postimg.cc/HkGbfFgJ/equityfy.png">
+    
+    <!-- Android PWA Meta Tags -->
+    <meta name="theme-color" content="#1a1a1a">
+    <meta name="mobile-web-app-capable" content="yes">
+    
+    <!-- Preload Glacial Indifference Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Top Navigation Bar -->
-    <header class="header">
-        <div class="container">
-            <div class="logo">
-                <h1><i class="fas fa-chart-line"></i> TradePro Elite</h1>
-                <span class="version">v3.0 Professional</span>
-            </div>
-            <nav class="main-nav">
-                <button class="nav-btn active" data-section="dashboard">
-                    <i class="fas fa-chart-area"></i> Dashboard
-                </button>
-                <button class="nav-btn" data-section="watchlist">
-                    <i class="fas fa-eye"></i> Watchlist
-                </button>
-                <button class="nav-btn" data-section="portfolio">
-                    <i class="fas fa-briefcase"></i> Portfolio
-                </button>
-                <button class="nav-btn" data-section="analytics">
-                    <i class="fas fa-chart-bar"></i> Analytics
-                </button>
-                <button class="nav-btn" data-section="research">
-                    <i class="fas fa-search"></i> Research
-                </button>
-            </nav>
-            <div class="user-controls">
-                <div class="market-status">
-                    <span id="marketStatus" class="status-open">Market Open</span>
-                    <div class="live-indicator"></div>
-                </div>
-                <button class="account-btn">
-                    <i class="fas fa-user-circle"></i>
-                    <span>John Doe</span>
-                </button>
-            </div>
+    <!-- PWA Update Banner -->
+    <div id="updateBanner" class="update-banner hidden">
+        <div class="update-content">
+            <span>📱 New version available!</span>
+            <button id="updateBtn" class="update-btn">Update App</button>
+            <button id="dismissBtn" class="dismiss-btn">×</button>
         </div>
+    </div>
+
+    <!-- PWA Install Banner -->
+    <div id="installBanner" class="install-banner hidden">
+        <div class="install-content">
+            <img src="https://i.postimg.cc/HkGbfFgJ/equityfy.png" alt="Equidify" class="install-icon">
+            <div class="install-text">
+                <h3>Install Equidify</h3>
+                <p>Get the full app experience</p>
+            </div>
+            <button id="installBtn" class="install-btn">Install</button>
+            <button id="installDismiss" class="dismiss-btn">×</button>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-brand">
+                <img src="https://i.postimg.cc/HkGbfFgJ/equityfy.png" alt="Equidify" class="logo">
+                <span class="brand-name">Equidify</span>
+            </div>
+            
+            <div class="nav-menu" id="navMenu">
+                <ul class="nav-list">
+                    <li><a href="#dashboard" class="nav-link active">Dashboard</a></li>
+                    <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                    <li><a href="#watchlist" class="nav-link">Watchlist</a></li>
+                    <li><a href="#markets" class="nav-link">Markets</a></li>
+                    <li><a href="#news" class="nav-link">News</a></li>
+                </ul>
+            </div>
+            
+            <div class="nav-actions">
+                <button class="btn btn-outline">Sign In</button>
+                <button class="btn btn-primary">Get Started</button>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </nav>
     </header>
 
     <!-- Main Content -->
-    <main class="main-content">
-        <!-- Dashboard Section -->
-        <section id="dashboard" class="section active">
+    <main class="main">
+        <!-- Hero Section -->
+        <section class="hero">
             <div class="container">
-                <!-- Market Overview -->
-                <div class="market-overview">
-                    <h2>Market Overview</h2>
-                    <div class="indices-grid">
-                        <div class="index-card">
-                            <div class="index-name">NIFTY 50</div>
-                            <div class="index-value" id="nifty50">19,674.35</div>
-                            <div class="index-change positive">+123.45 (+0.63%)</div>
-                        </div>
-                        <div class="index-card">
-                            <div class="index-name">SENSEX</div>
-                            <div class="index-value" id="sensex">65,953.48</div>
-                            <div class="index-change positive">+342.18 (+0.52%)</div>
-                        </div>
-                        <div class="index-card">
-                            <div class="index-name">BANK NIFTY</div>
-                            <div class="index-value" id="banknifty">45,123.75</div>
-                            <div class="index-change negative">-234.56 (-0.52%)</div>
-                        </div>
-                        <div class="index-card">
-                            <div class="index-name">NIFTY IT</div>
-                            <div class="index-value" id="niftyit">28,456.90</div>
-                            <div class="index-change positive">+156.78 (+0.55%)</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Quick Actions & Portfolio Summary -->
-                <div class="dashboard-grid">
-                    <!-- Portfolio Summary -->
-                    <div class="portfolio-summary">
-                        <h3>Portfolio Summary</h3>
-                        <div class="portfolio-stats">
-                            <div class="stat-item">
-                                <span class="stat-label">Total Value</span>
-                                <span class="stat-value">₹15,67,890</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-label">Day's P&L</span>
-                                <span class="stat-value positive">+₹12,345</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-label">Total P&L</span>
-                                <span class="stat-value positive">+₹2,45,678</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-label">Available Funds</span>
-                                <span class="stat-value">₹3,45,000</span>
-                            </div>
-                        </div>
-                        <div class="portfolio-chart">
-                            <canvas id="portfolioChart" width="400" height="200"></canvas>
-                        </div>
-                    </div>
-
-                    <!-- Top Gainers/Losers -->
-                    <div class="market-movers">
-                        <div class="movers-tabs">
-                            <button class="tab-btn active" data-tab="gainers">Top Gainers</button>
-                            <button class="tab-btn" data-tab="losers">Top Losers</button>
-                        </div>
-                        <div id="gainers" class="movers-content active">
-                            <div class="mover-item">
-                                <span class="stock-name">ADANIENT</span>
-                                <span class="stock-price">₹2,456.70</span>
-                                <span class="stock-change positive">+8.45%</span>
-                            </div>
-                            <div class="mover-item">
-                                <span class="stock-name">TATAMOTORS</span>
-                                <span class="stock-price">₹623.45</span>
-                                <span class="stock-change positive">+6.78%</span>
-                            </div>
-                            <div class="mover-item">
-                                <span class="stock-name">RELIANCE</span>
-                                <span class="stock-price">₹2,567.80</span>
-                                <span class="stock-change positive">+5.23%</span>
-                            </div>
-                        </div>
-                        <div id="losers" class="movers-content">
-                            <div class="mover-item">
-                                <span class="stock-name">HDFC</span>
-                                <span class="stock-price">₹1,456.30</span>
-                                <span class="stock-change negative">-4.56%</span>
-                            </div>
-                            <div class="mover-item">
-                                <span class="stock-name">ICICIBANK</span>
-                                <span class="stock-price">₹945.67</span>
-                                <span class="stock-change negative">-3.45%</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Live Trading Interface -->
-                <div class="trading-interface">
-                    <h3>Quick Trade</h3>
-                    <div class="trade-form">
-                        <div class="stock-search">
-                            <input type="text" id="stockSearch" placeholder="Search stocks (e.g., RELIANCE, TCS, INFY)">
-                            <div id="searchResults" class="search-results"></div>
-                        </div>
-                        <div class="trade-details">
-                            <div class="trade-type">
-                                <button class="trade-btn buy active" data-type="buy">BUY</button>
-                                <button class="trade-btn sell" data-type="sell">SELL</button>
-                            </div>
-                            <div class="trade-inputs">
-                                <input type="number" id="quantity" placeholder="Quantity" min="1">
-                                <select id="orderType">
-                                    <option value="market">Market</option>
-                                    <option value="limit">Limit</option>
-                                    <option value="stop-loss">Stop Loss</option>
-                                </select>
-                                <input type="number" id="price" placeholder="Price" step="0.01" disabled>
-                            </div>
-                        </div>
-                        <div class="trade-summary">
-                            <div class="summary-item">
-                                <span>Estimated Cost:</span>
-                                <span id="estimatedCost">₹0</span>
-                            </div>
-                        </div>
-                        <button class="place-order-btn disabled" disabled>
-                            <i class="fas fa-ban"></i> Order Placement On Hold
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Watchlist Section -->
-        <section id="watchlist" class="section">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Watchlist</h2>
-                    <button class="add-stock-btn">
-                        <i class="fas fa-plus"></i> Add Stock
-                    </button>
-                </div>
-                <div class="watchlist-tabs">
-                    <button class="tab-btn active" data-tab="all">All Stocks</button>
-                    <button class="tab-btn" data-tab="nifty50">NIFTY 50</button>
-                    <button class="tab-btn" data-tab="custom">Custom List</button>
-                </div>
-                <div class="watchlist-table">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Symbol</th>
-                                <th>LTP</th>
-                                <th>Chg</th>
-                                <th>Chg%</th>
-                                <th>Volume</th>
-                                <th>Buy/Sell</th>
-                            </tr>
-                        </thead>
-                        <tbody id="watchlistBody">
-                            <!-- Dynamic content -->
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </section>
-
-        <!-- Portfolio Section -->
-        <section id="portfolio" class="section">
-            <div class="container">
-                <div class="portfolio-header">
-                    <h2>Portfolio Holdings</h2>
-                    <div class="portfolio-controls">
-                        <button class="btn-secondary">
-                            <i class="fas fa-download"></i> Export
-                        </button>
-                        <button class="btn-secondary">
-                            <i class="fas fa-sync"></i> Refresh
-                        </button>
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        Trade Smarter with
+                        <span class="gradient-text">Equidify</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        Experience real-time trading with advanced analytics, 
+                        comprehensive market data, and professional-grade tools.
+                    </p>
+                    <div class="hero-actions">
+                        <button class="btn btn-primary btn-large">Start Trading Now</button>
+                        <button class="btn btn-outline btn-large">Watch Demo</button>
                     </div>
                 </div>
                 
-                <div class="portfolio-metrics">
-                    <div class="metric-card">
-                        <h4>Total Investment</h4>
-                        <div class="metric-value">₹13,22,000</div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number" id="totalUsers">50,000+</div>
+                        <div class="stat-label">Active Traders</div>
                     </div>
-                    <div class="metric-card">
-                        <h4>Current Value</h4>
-                        <div class="metric-value">₹15,67,890</div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="totalVolume">$2.5B</div>
+                        <div class="stat-label">Daily Volume</div>
                     </div>
-                    <div class="metric-card">
-                        <h4>Unrealized P&L</h4>
-                        <div class="metric-value positive">+₹2,45,890</div>
-                    </div>
-                    <div class="metric-card">
-                        <h4>Day's P&L</h4>
-                        <div class="metric-value positive">+₹12,345</div>
-                    </div>
-                </div>
-
-                <div class="holdings-table">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Instrument</th>
-                                <th>Qty</th>
-                                <th>Avg. Cost</th>
-                                <th>LTP</th>
-                                <th>P&L</th>
-                                <th>Day Chg</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody id="holdingsBody">
-                            <!-- Dynamic content -->
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </section>
-
-        <!-- Analytics Section -->
-        <section id="analytics" class="section">
-            <div class="container">
-                <h2>Advanced Analytics</h2>
-                <div class="analytics-grid">
-                    <div class="chart-container">
-                        <h3>Portfolio Performance</h3>
-                        <canvas id="performanceChart"></canvas>
-                    </div>
-                    <div class="chart-container">
-                        <h3>Sector Allocation</h3>
-                        <canvas id="sectorChart"></canvas>
-                    </div>
-                    <div class="chart-container">
-                        <h3>Risk Analysis</h3>
-                        <canvas id="riskChart"></canvas>
-                    </div>
-                    <div class="chart-container">
-                        <h3>Returns Distribution</h3>
-                        <canvas id="returnsChart"></canvas>
+                    <div class="stat-item">
+                        <div class="stat-number" id="totalStocks">10,000+</div>
+                        <div class="stat-label">Available Stocks</div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Research Section -->
-        <section id="research" class="section">
+        <!-- Market Overview -->
+        <section class="market-overview">
             <div class="container">
-                <h2>Research & Analysis</h2>
-                <div class="research-tools">
-                    <div class="tool-card">
-                        <h3>Stock Screener</h3>
-                        <div class="screener-filters">
-                            <select id="marketCap">
-                                <option value="">Market Cap</option>
-                                <option value="large">Large Cap</option>
-                                <option value="mid">Mid Cap</option>
-                                <option value="small">Small Cap</option>
-                            </select>
-                            <select id="sector">
-                                <option value="">Sector</option>
-                                <option value="it">IT</option>
-                                <option value="banking">Banking</option>
-                                <option value="pharma">Pharma</option>
-                            </select>
-                            <button class="btn-primary">Screen</button>
+                <div class="section-header">
+                    <h2>Live Market Data</h2>
+                    <div class="market-status">
+                        <span class="status-indicator" id="marketStatus"></span>
+                        <span id="marketStatusText">Market Open</span>
+                    </div>
+                </div>
+                
+                <div class="market-indices">
+                    <div class="index-card" id="spyIndex">
+                        <div class="index-info">
+                            <h3>S&P 500</h3>
+                            <div class="index-symbol">SPY</div>
+                        </div>
+                        <div class="index-price">
+                            <div class="price">$---</div>
+                            <div class="change">---%</div>
                         </div>
                     </div>
-                    <div class="tool-card">
-                        <h3>Technical Indicators</h3>
-                        <div class="indicator-list">
-                            <div class="indicator-item">
-                                <span>RSI (14)</span>
-                                <span class="indicator-value">67.45</span>
-                            </div>
-                            <div class="indicator-item">
-                                <span>MACD</span>
-                                <span class="indicator-value positive">+12.34</span>
-                            </div>
-                            <div class="indicator-item">
-                                <span>Moving Avg (50)</span>
-                                <span class="indicator-value">₹2,345.67</span>
-                            </div>
+                    
+                    <div class="index-card" id="diaIndex">
+                        <div class="index-info">
+                            <h3>Dow Jones</h3>
+                            <div class="index-symbol">DIA</div>
                         </div>
+                        <div class="index-price">
+                            <div class="price">$---</div>
+                            <div class="change">---%</div>
+                        </div>
+                    </div>
+                    
+                    <div class="index-card" id="qqqIndex">
+                        <div class="index-info">
+                            <h3>Nasdaq</h3>
+                            <div class="index-symbol">QQQ</div>
+                        </div>
+                        <div class="index-price">
+                            <div class="price">$---</div>
+                            <div class="change">---%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stock Search & Quotes -->
+        <section class="stock-search">
+            <div class="container">
+                <div class="search-header">
+                    <h2>Real-Time Stock Quotes</h2>
+                    <p>Search and track your favorite stocks with live pricing</p>
+                </div>
+                
+                <div class="search-container">
+                    <div class="search-input-group">
+                        <input type="text" id="stockSearch" placeholder="Enter stock symbol (e.g., AAPL, MSFT, GOOGL)" class="search-input">
+                        <button id="searchBtn" class="search-btn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <path d="m21 21-4.35-4.35"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    
+                    <div class="quick-stocks">
+                        <span class="quick-label">Popular:</span>
+                        <button class="quick-stock" data-symbol="AAPL">AAPL</button>
+                        <button class="quick-stock" data-symbol="MSFT">MSFT</button>
+                        <button class="quick-stock" data-symbol="GOOGL">GOOGL</button>
+                        <button class="quick-stock" data-symbol="AMZN">AMZN</button>
+                        <button class="quick-stock" data-symbol="TSLA">TSLA</button>
+                    </div>
+                </div>
+                
+                <div id="stockResults" class="stock-results"></div>
+            </div>
+        </section>
+
+        <!-- Watchlist -->
+        <section class="watchlist">
+            <div class="container">
+                <div class="watchlist-header">
+                    <h2>My Watchlist</h2>
+                    <button class="btn btn-outline btn-small">Add Stock</button>
+                </div>
+                
+                <div class="watchlist-table">
+                    <div class="table-header">
+                        <div class="col-symbol">Symbol</div>
+                        <div class="col-name">Company</div>
+                        <div class="col-price">Price</div>
+                        <div class="col-change">Change</div>
+                        <div class="col-actions">Actions</div>
+                    </div>
+                    
+                    <div id="watchlistItems" class="table-body">
+                        <!-- Watchlist items will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section class="features">
+            <div class="container">
+                <h2 class="section-title">Why Choose Equidify?</h2>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">📊</div>
+                        <h3>Real-Time Data</h3>
+                        <p>Get live stock prices and market data powered by professional-grade APIs</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">🚀</div>
+                        <h3>Advanced Analytics</h3>
+                        <p>Comprehensive charts, technical indicators, and market analysis tools</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">🔒</div>
+                        <h3>Secure Trading</h3>
+                        <p>Bank-level security with encrypted transactions and data protection</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">📱</div>
+                        <h3>Mobile First</h3>
+                        <p>Trade anywhere with our responsive design and PWA support</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">⚡</div>
+                        <h3>Lightning Fast</h3>
+                        <p>Execute trades instantly with our optimized trading engine</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">💰</div>
+                        <h3>Low Fees</h3>
+                        <p>Competitive pricing with transparent fee structure</p>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Modals -->
-    <div id="stockModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>Add to Watchlist</h3>
-                <button class="modal-close">
-                    <i class="fas fa-times"></i>
-                </button>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-brand">
+                        <img src="https://i.postimg.cc/HkGbfFgJ/equityfy.png" alt="Equidify" class="footer-logo">
+                        <span class="footer-brand-name">Equidify</span>
+                    </div>
+                    <p class="footer-description">
+                        Your trusted partner in stock trading with cutting-edge technology 
+                        and professional-grade tools.
+                    </p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Trading</h4>
+                    <ul>
+                        <li><a href="#stocks">Stocks</a></li>
+                        <li><a href="#etfs">ETFs</a></li>
+                        <li><a href="#options">Options</a></li>
+                        <li><a href="#crypto">Crypto</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#careers">Careers</a></li>
+                        <li><a href="#press">Press</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#help">Help Center</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                        <li><a href="#privacy">Privacy Policy</a></li>
+                        <li><a href="#terms">Terms of Service</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="modal-body">
-                <input type="text" id="modalStockSearch" placeholder="Search stock symbol">
-                <div class="modal-actions">
-                    <button class="btn-primary">Add to Watchlist</button>
-                    <button class="btn-secondary modal-close">Cancel</button>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Equidify. All rights reserved. Securities trading offered through Equidify Securities LLC.</p>
+                <div class="footer-links">
+                    <a href="#privacy">Privacy</a>
+                    <a href="#terms">Terms</a>
+                    <a href="#disclosures">Disclosures</a>
                 </div>
             </div>
         </div>
+    </footer>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay hidden">
+        <div class="loading-spinner"></div>
+        <p>Loading market data...</p>
     </div>
 
-    <!-- Toast Container -->
-    <div id="toastContainer" class="toast-container"></div>
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Scripts -->
     <script src="script.js"></script>
+    
+    <!-- Service Worker Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('sw.js')
+                    .then(function(registration) {
+                        console.log('ServiceWorker registration successful');
+                    }, function(err) {
+                        console.log('ServiceWorker registration failed: ', err);
+                    });
+            });
+        }
+    </script>
 </body>
 </html>
